@@ -61,19 +61,54 @@
 <h1> Instructions </h1>
 <ul>
        <li>Create a database called myapplication.</li>
+       //create database myapplication;
+
        <li>Create a table called users. (Id,username,password,email,phone_number). Those fields should have the right datatype and right size.
+       //show databases;
+       //use myapplication;
+       //craete table if not exists users(
+    -> id INT NOT NULL PRIMARY KEY auto_increment,
+    -> username varchar(25) NOT NULL,  
+    -> email varchar(30) NOT NULL,                                              
+    -> phone_number INT       
+    -> );
+
+
+
        <li>Connect the form to the database, When the user insert the information in the registration form, those information should stored in the database.</li>
        <li>After submission, the page should be redirect to new page.</li>
        <li>The new page should display, "Hello (username)" </li>
 </ul>
+<?php
+
+    if (isset($_post)="submit"){
+
+    Require_once ("conf.php");
+    
+    $username="";
+    $password="";
+    $email="";
+    $phone_number="";
+
+    $sql= Insert into users ('username','password','email','phone_number') value ($_post['username]' , $_post['password]' , $_post['email]', $_post['phone_number']){
+        if(!empty('username')&& !empty('password') && !empty('email'), !empty('phone_number') ){
+
+        }
+    }
+    }
+
+
+
+
+?>
 <form>
     <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="username"><b>username</b></label>
+        <input type="text" placeholder="Enter user name" name="user_name" required>
 
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
@@ -89,7 +124,7 @@
         <hr>
 
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="registerbtn" name="submit">Register</button>
     </div>
 
     <div class="container signin">
